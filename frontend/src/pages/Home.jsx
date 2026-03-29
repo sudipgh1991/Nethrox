@@ -10,6 +10,7 @@ export default function Home() {
   const [mode, setMode] = useState('signin');
   const [showPassword, setShowPassword] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', password: '' });
+  const [logoError, setLogoError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +23,16 @@ export default function Home() {
       <div className={styles.left}>
         <div className={styles.brand}>
           <div className={styles.logo}>
-            <Shield size={32} />
+            {logoError ? (
+              <Shield size={32} />
+            ) : (
+              <img
+                src="/logo.png"
+                alt="Nethrox"
+                className={styles.logoImg}
+                onError={() => setLogoError(true)}
+              />
+            )}
           </div>
           <h1 className={styles.appName}>Nethrox</h1>
         </div>

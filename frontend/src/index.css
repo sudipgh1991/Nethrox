@@ -1,6 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+/* Light theme (default) */
 :root {
+  --primary: #6C63FF;
+  --primary-dark: #5A52D5;
+  --primary-light: #7B73FF;
+  --secondary: #00C896;
+  --secondary-dark: #00A87D;
+  --accent: #FF6584;
+  --bg-dark: #F4F5F9;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F0F1F6;
+  --bg-input: #F0F1F6;
+  --border: #E0E2EB;
+  --text-primary: #1A1D2E;
+  --text-secondary: #5A5E73;
+  --text-muted: #9196AB;
+  --success: #16A34A;
+  --warning: #D97706;
+  --danger: #DC2626;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
+  --transition: all 0.2s ease;
+
+  /* Home page specific */
+  --home-left-bg: linear-gradient(135deg, #EEF0F7 0%, #E4E7F2 50%, #DFE1F5 100%);
+  --home-left-glow: rgba(108, 99, 255, 0.08);
+  --home-right-bg: #F4F5F9;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
   --primary: #6C63FF;
   --primary-dark: #5A52D5;
   --primary-light: #8B83FF;
@@ -18,12 +51,12 @@
   --success: #22C55E;
   --warning: #F59E0B;
   --danger: #EF4444;
-  --radius: 12px;
-  --radius-sm: 8px;
-  --radius-lg: 16px;
   --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.4);
-  --transition: all 0.2s ease;
+
+  --home-left-bg: linear-gradient(135deg, #0B0E17 0%, #131724 50%, #1A1040 100%);
+  --home-left-glow: rgba(108, 99, 255, 0.12);
+  --home-right-bg: #0B0E17;
 }
 
 * {

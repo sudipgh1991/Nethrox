@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useAppContext } from '../context/AppContext';
+import { useTheme } from '../context/ThemeContext';
 import { useNavigate } from 'react-router-dom';
 import {
   BarChart, Bar, PieChart, Pie, Cell, LineChart, Line, AreaChart, Area,
@@ -16,8 +17,16 @@ const COLORS = ['#6C63FF', '#00D9A6', '#FF6584', '#F59E0B', '#3B82F6', '#8B5CF6'
 export default function Dashboard() {
   const navigate = useNavigate();
   const { selectedCategories, selectedRules, RULES_BY_CATEGORY, ANALYTICS_OPTIONS, customRules } = useAppContext();
+  const { theme } = useTheme();
   const [isRunning, setIsRunning] = useState(false);
   const [hasRun, setHasRun] = useState(false);
+
+  const isDark = theme === 'dark';
+  const gridColor = isDark ? '#2A2F45' : '#E0E2EB';
+  const tickColor = isDark ? '#8B8FA3' : '#5A5E73';
+  const tooltipBg = isDark ? '#131724' : '#FFFFFF';
+  const tooltipBorder = isDark ? '#2A2F45' : '#E0E2EB';
+  const tooltipLabel = isDark ? '#EAEAF0' : '#1A1D2E';
 
   // Simulate running analytics
   const runAnalytics = () => {
@@ -176,12 +185,12 @@ export default function Dashboard() {
           <h3>Flagged Items by Rule</h3>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={barData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#2A2F45" />
-              <XAxis dataKey="name" tick={{ fill: '#8B8FA3', fontSize: 11 }} angle={-20} textAnchor="end" height={60} />
-              <YAxis tick={{ fill: '#8B8FA3', fontSize: 12 }} />
+              <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
+              <XAxis dataKey="name" tick={{ fill: tickColor, fontSize: 11 }} angle={-20} textAnchor="end" height={60} />
+              <YAxis tick={{ fill: tickColor, fontSize: 12 }} />
               <Tooltip
-                contentStyle={{ background: '#131724', border: '1px solid #2A2F45', borderRadius: 8 }}
-                labelStyle={{ color: '#EAEAF0' }}
+                contentStyle={{ background: tooltipBg, border: `1px solid ${tooltipBorder}`, borderRadius: 8 }}
+                labelStyle={{ color: tooltipLabel }}
               />
               <Bar dataKey="flagged" radius={[6, 6, 0, 0]}>
                 {barData.map((_, i) => (
@@ -211,7 +220,7 @@ export default function Dashboard() {
                 ))}
               </Pie>
               <Tooltip
-                contentStyle={{ background: '#131724', border: '1px solid #2A2F45', borderRadius: 8 }}
+                contentStyle={{ background: tooltipBg, border: `1px solid ${tooltipBorder}`, borderRadius: 8 }}
               />
             </PieChart>
           </ResponsiveContainer>
@@ -223,12 +232,12 @@ export default function Dashboard() {
           <h3>Monthly Alert Trend</h3>
           <ResponsiveContainer width="100%" height={280}>
             <AreaChart data={trendData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#2A2F45" />
-              <XAxis dataKey="month" tick={{ fill: '#8B8FA3', fontSize: 12 }} />
-              <YAxis tick={{ fill: '#8B8FA3', fontSize: 12 }} />
+              <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
+              <XAxis dataKey="month" tick={{ fill: tickColor, fontSize: 12 }} />
+              <YAxis tick={{ fill: tickColor, fontSize: 12 }} />
               <Tooltip
-                contentStyle={{ background: '#131724', border: '1px solid #2A2F45', borderRadius: 8 }}
-                labelStyle={{ color: '#EAEAF0' }}
+                contentStyle={{ background: tooltipBg, border: `1px solid ${tooltipBorder}`, borderRadius: 8 }}
+                labelStyle={{ color: tooltipLabel }}
               />
               <Legend />
               <Area type="monotone" dataKey="alerts" stroke="#6C63FF" fill="rgba(108, 99, 255, 0.15)" strokeWidth={2} />
@@ -255,7 +264,7 @@ export default function Dashboard() {
                 ))}
               </Pie>
               <Tooltip
-                contentStyle={{ background: '#131724', border: '1px solid #2A2F45', borderRadius: 8 }}
+                contentStyle={{ background: tooltipBg, border: `1px solid ${tooltipBorder}`, borderRadius: 8 }}
               />
             </PieChart>
           </ResponsiveContainer>

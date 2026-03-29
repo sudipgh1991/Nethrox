@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: linear-gradient(135deg, #0B0E17 0%, #131724 50%, #1A1040 100%);
+  background: var(--home-left-bg);
   position: relative;
   overflow: hidden;
 }
@@ -21,7 +21,7 @@
   left: -200px;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(108, 99, 255, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--home-left-glow) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -32,14 +32,21 @@
   margin-bottom: 8px;
 }
 .logo {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
+  overflow: hidden;
+}
+.logoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
 }
 .appName {
   font-size: 28px;
@@ -86,10 +93,11 @@
   align-items: flex-start;
   gap: 14px;
   padding: 16px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   transition: var(--transition);
+  box-shadow: var(--shadow);
 }
 .feature:hover {
   background: rgba(108, 99, 255, 0.06);
@@ -118,7 +126,7 @@
   align-items: center;
   justify-content: center;
   padding: 40px;
-  background: var(--bg-dark);
+  background: var(--home-right-bg);
 }
 .formCard {
   width: 100%;
