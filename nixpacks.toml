@@ -2,10 +2,10 @@
 nixPkgs = ["nodejs_20"]
 
 [phases.install]
-cmds = ["npm install", "cd frontend && rm -rf node_modules package-lock.json && npm install"]
+cmds = ["npm install"]
 
 [phases.build]
-cmds = ["cd frontend && npm run build"]
+cmds = ["npm run build"]
 
 [start]
 cmd = "serve frontend/dist -s -l tcp://0.0.0.0:$PORT"
