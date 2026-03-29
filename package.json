@@ -3,8 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "build": "cd frontend && rm -rf node_modules package-lock.json && npm install && npm run build",
-    "start": "serve frontend/dist -s -l tcp://0.0.0.0:$PORT"
+    "start": "node_modules/.bin/serve frontend/dist -s -l tcp://0.0.0.0:$PORT"
   },
   "dependencies": {
     "serve": "^14.2.6"

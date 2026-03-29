@@ -2,10 +2,10 @@
 nixPkgs = ["nodejs_22"]
 
 [phases.install]
-cmds = ["npm install"]
+cmds = ["npm install", "cd frontend && npm install"]
 
 [phases.build]
-cmds = ["npm run build"]
+cmds = ["cd frontend && npm run build"]
 
 [start]
-cmd = "serve frontend/dist -s -l tcp://0.0.0.0:$PORT"
+cmd = "node_modules/.bin/serve frontend/dist -s -l tcp://0.0.0.0:$PORT"
