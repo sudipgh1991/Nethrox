@@ -20,6 +20,6 @@ RUN npm install -g serve
 
 COPY --from=builder /app/frontend/dist ./frontend/dist
 
-EXPOSE 3000
+EXPOSE 8080
 
 CMD serve frontend/dist -s -l tcp://0.0.0.0:$PORT
