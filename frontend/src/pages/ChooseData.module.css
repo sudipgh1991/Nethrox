@@ -1,0 +1,236 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header {
+  padding: 32px 0 24px;
+  border-bottom: 1px solid var(--border);
+}
+.header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.header p {
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+/* Method Cards */
+.methods {
+  display: flex;
+  gap: 16px;
+  padding: 28px 0;
+}
+.methodCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 28px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+.methodCard:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(108, 99, 255, 0.3);
+  color: var(--text-primary);
+}
+.methodActive {
+  border-color: var(--primary) !important;
+  background: rgba(108, 99, 255, 0.06) !important;
+  color: var(--primary) !important;
+}
+.methodCard h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: inherit;
+}
+.methodCard p {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Panel */
+.panel {
+  flex: 1;
+  padding: 28px 0;
+}
+
+/* Upload */
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  background: var(--bg-card);
+}
+.dropzone:hover {
+  border-color: var(--primary);
+  background: rgba(108, 99, 255, 0.04);
+}
+.dropIcon {
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+.dropText {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.dropHint {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.fileInput {
+  display: none;
+}
+.fileList {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.fileItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.fileIcon {
+  color: var(--secondary);
+}
+.fileName {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+}
+.fileSize {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.removeFile {
+  background: none;
+  color: var(--text-muted);
+  display: flex;
+  padding: 4px;
+  border-radius: 4px;
+}
+.removeFile:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+}
+
+/* URL */
+.urlArea {
+  max-width: 600px;
+}
+.label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 14px;
+  transition: var(--transition);
+}
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+}
+.input::placeholder {
+  color: var(--text-muted);
+}
+.hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+/* Database */
+.dbGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 700px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Footer */
+.footer {
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+}
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+.backBtn:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+}
+.nextBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+.nextBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.4);
+}
+.nextBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .methods { flex-direction: column; }
+  .dbGrid { grid-template-columns: 1fr; }
+}
