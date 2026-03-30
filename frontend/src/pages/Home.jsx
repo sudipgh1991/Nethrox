@@ -27,7 +27,7 @@ export default function Home() {
               <Shield size={32} />
             ) : (
               <img
-                src="/logo.png"
+                src="/logo.jpg"
                 alt="Nethrox"
                 className={styles.logoImg}
                 onError={() => setLogoError(true)}
