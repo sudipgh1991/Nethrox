@@ -1,8 +1,32 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../context/AppContext';
-import { Shield, BarChart3, Database, ArrowRight, Eye, EyeOff } from 'lucide-react';
+import { Shield, BarChart3, Database, ArrowRight, Eye, EyeOff, TrendingUp, ShieldCheck, Sliders } from 'lucide-react';
 import styles from './Home.module.css';
+
+const STATS = [
+  { value: '10M+', label: 'Transactions Analyzed' },
+  { value: '99.9%', label: 'Detection Accuracy' },
+  { value: '500+', label: 'Compliance Rules' },
+];
+
+const FEATURES = [
+  {
+    icon: <BarChart3 size={20} />,
+    title: 'FCPA Analytics',
+    desc: 'Accounts Payable, Time & Expense, and Sales analytics',
+  },
+  {
+    icon: <ShieldCheck size={20} />,
+    title: 'AML Monitoring',
+    desc: 'Transaction monitoring and suspicious activity detection',
+  },
+  {
+    icon: <Sliders size={20} />,
+    title: 'Custom Analytics',
+    desc: 'Flexible analytics for any dataset with customizable rules',
+  },
+];
 
 export default function Home() {
   const navigate = useNavigate();
@@ -20,11 +44,15 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
+      {/* Decorative blobs */}
+      <div className={styles.blob1} />
+      <div className={styles.blob2} />
+
       <div className={styles.left}>
         <div className={styles.brand}>
           <div className={styles.logo}>
             {logoError ? (
-              <Shield size={32} />
+              <Shield size={64} />
             ) : (
               <img
                 src="/logo.jpg"
@@ -36,44 +64,55 @@ export default function Home() {
           </div>
           <h1 className={styles.appName}>Nethrox</h1>
         </div>
+
         <p className={styles.tagline}>Intelligent Compliance Analytics Platform</p>
+
         <h2 className={styles.headline}>
-          Uncover risks. <br />
+          Uncover risks.<br />
           <span className={styles.gradient}>Ensure compliance.</span>
         </h2>
+
         <p className={styles.description}>
           Nethrox empowers organizations with advanced analytics for FCPA compliance,
-          Anti-Money Laundering monitoring, and customizable data analysis. Upload your
-          data, configure rules, and gain actionable insights through interactive dashboards.
+          AML monitoring, and customizable data analysis — turning complex data into
+          actionable insights.
         </p>
 
+        <div className={styles.stats}>
+          {STATS.map((s) => (
+            <div key={s.label} className={styles.stat}>
+              <span className={styles.statValue}>{s.value}</span>
+              <span className={styles.statLabel}>{s.label}</span>
+            </div>
+          ))}
+        </div>
+
         <div className={styles.features}>
-          <div className={styles.feature}>
-            <BarChart3 size={20} className={styles.featureIcon} />
-            <div>
-              <h4>FCPA Analytics</h4>
-              <p>Accounts Payable, Time & Expense, and Sales analytics</p>
+          {FEATURES.map((f) => (
+            <div key={f.title} className={styles.feature}>
+              <div className={styles.featureIconWrap}>{f.icon}</div>
+              <div>
+                <h4>{f.title}</h4>
+                <p>{f.desc}</p>
+              </div>
             </div>
-          </div>
-          <div className={styles.feature}>
-            <Database size={20} className={styles.featureIcon} />
-            <div>
-              <h4>AML Monitoring</h4>
-              <p>Transaction monitoring and suspicious activity detection</p>
-            </div>
-          </div>
-          <div className={styles.feature}>
-            <BarChart3 size={20} className={styles.featureIcon} />
-            <div>
-              <h4>Custom Analytics</h4>
-              <p>Flexible analytics for any dataset with customizable rules</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
       <div className={styles.right}>
         <div className={styles.formCard}>
+          <div className={styles.formHeader}>
+            <h3 className={styles.formTitle}>
+              {mode === 'signin' ? 'Welcome back' : 'Get started'}
+            </h3>
+            <p className={styles.formSubtitle}>
+              {mode === 'signin'
+                ? 'Sign in to your Nethrox account'
+                : 'Create your Nethrox account'}
+            </p>
+          </div>
+
           <div className={styles.tabs}>
             <button
               className={`${styles.tab} ${mode === 'signin' ? styles.tabActive : ''}`}
@@ -134,7 +173,7 @@ export default function Home() {
             </div>
 
             <button type="submit" className={styles.submitBtn}>
-              {mode === 'signin' ? 'Sign In' : 'Create Account'}
+              <span>{mode === 'signin' ? 'Sign In' : 'Create Account'}</span>
               <ArrowRight size={18} />
             </button>
           </form>
@@ -148,6 +187,11 @@ export default function Home() {
               {mode === 'signin' ? 'Create one' : 'Sign in'}
             </button>
           </p>
+
+          <div className={styles.trustRow}>
+            <ShieldCheck size={14} />
+            <span>SOC 2 compliant · End-to-end encrypted</span>
+          </div>
         </div>
       </div>
     </div>
