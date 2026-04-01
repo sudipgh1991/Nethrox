@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import { ThemeProvider } from './context/ThemeContext';
 import ThemeToggle from './components/ThemeToggle';
+import LandingPage from './pages/LandingPage';
 import Home from './pages/Home';
 import SelectAnalytics from './pages/SelectAnalytics';
 import ChooseData from './pages/ChooseData';
@@ -13,14 +14,16 @@ function App() {
   return (
     <ThemeProvider>
       <AppProvider>
-        <ThemeToggle />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/select-analytics" element={<SelectAnalytics />} />
-          <Route path="/choose-data" element={<ChooseData />} />
-          <Route path="/data-mapping" element={<DataMapping />} />
-          <Route path="/configure-rules" element={<ConfigureRules />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          {/* Public landing page — no ThemeToggle */}
+          <Route path="/" element={<LandingPage />} />
+          {/* App routes — include ThemeToggle */}
+          <Route path="/app" element={<><ThemeToggle /><Home /></>} />
+          <Route path="/select-analytics" element={<><ThemeToggle /><SelectAnalytics /></>} />
+          <Route path="/choose-data" element={<><ThemeToggle /><ChooseData /></>} />
+          <Route path="/data-mapping" element={<><ThemeToggle /><DataMapping /></>} />
+          <Route path="/configure-rules" element={<><ThemeToggle /><ConfigureRules /></>} />
+          <Route path="/dashboard" element={<><ThemeToggle /><Dashboard /></>} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AppProvider>
