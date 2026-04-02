@@ -210,11 +210,6 @@ function Navigation({ onLaunchApp, darkMode, toggleTheme }) {
 }
 
 /* ── Hero Section ───────────────────────────────────── */
-const SOLUTIONS = [
-  { icon: <BarChart3 size={20} />, title: 'FCPA Analytics', desc: 'Monitor accounts payable, T&E, and sales transactions for compliance violations.', features: ['AP monitoring', 'T&E analysis', 'Sales tracking'] },
-  { icon: <Shield size={20} />, title: 'AML Monitoring', desc: 'Detect suspicious patterns and anomalies with real-time transaction alerts.', features: ['Transaction monitoring', 'Anomaly detection', 'Real-time alerts'] },
-  { icon: <Settings size={20} />, title: 'Custom Analytics', desc: 'Build tailored analytics with configurable rules engine and dashboards.', features: ['Flexible datasets', 'Custom rules', 'Configurable dashboards'] },
-];
 
 const KPIS = [
   { value: '10M+', label: 'Transactions Analyzed' },
@@ -233,87 +228,101 @@ function Hero({ onLaunchApp, darkMode }) {
   const badgeBg = darkMode ? 'rgba(201,169,97,0.12)' : 'rgba(201,169,97,0.1)';
   const badgeBorder = darkMode ? 'rgba(201,169,97,0.35)' : 'rgba(201,169,97,0.3)';
   const badgeText = darkMode ? '#e0c46e' : '#9a7020';
-  const kpiBorder = darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(15,29,66,0.1)';
-  const kpiNum = darkMode ? '#f0c040' : '#0f1d42';
-  const kpiSub = darkMode ? 'rgba(255,255,255,0.45)' : '#64748b';
   const learnMoreColor = darkMode ? 'rgba(255,255,255,0.85)' : '#0f1d42';
   const learnMoreBorder = darkMode ? 'rgba(255,255,255,0.22)' : 'rgba(15,29,66,0.2)';
-  const pillBg = darkMode ? 'rgba(201,169,97,0.1)' : 'rgba(15,29,66,0.06)';
-  const pillBorder = darkMode ? 'rgba(201,169,97,0.25)' : 'rgba(15,29,66,0.1)';
-  const pillText = darkMode ? 'rgba(255,255,255,0.8)' : '#1a2744';
   const logoShadow = darkMode
     ? '0 0 40px rgba(201,169,97,0.35), 0 0 80px rgba(201,169,97,0.12)'
     : '0 8px 36px rgba(15,29,66,0.15), 0 2px 8px rgba(15,29,66,0.1)';
 
   return (
-    <section style={{ position: 'relative', overflow: 'hidden', background: heroBg, minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: 68 }}>
+    <section style={{ position: 'relative', overflow: 'hidden', background: heroBg, paddingTop: 68 }}>
       {/* Orbs */}
-      <div style={{ position: 'absolute', top: '8%', left: '5%', width: 520, height: 520, borderRadius: '50%', background: darkMode ? 'radial-gradient(circle, rgba(201,169,97,0.13) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(201,169,97,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
-      <div style={{ position: 'absolute', top: '30%', right: '3%', width: 460, height: 460, borderRadius: '50%', background: darkMode ? 'radial-gradient(circle, rgba(74,159,181,0.12) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(74,159,181,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: '5%', left: '3%', width: 420, height: 420, borderRadius: '50%', background: darkMode ? 'radial-gradient(circle, rgba(201,169,97,0.13) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(201,169,97,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: '20%', right: '2%', width: 360, height: 360, borderRadius: '50%', background: darkMode ? 'radial-gradient(circle, rgba(74,159,181,0.12) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(74,159,181,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
       {/* Grid */}
       <div style={{ position: 'absolute', inset: 0, backgroundImage: `linear-gradient(${gridLine} 1px, transparent 1px), linear-gradient(90deg, ${gridLine} 1px, transparent 1px)`, backgroundSize: '60px 60px', pointerEvents: 'none' }} />
 
+      {/* Main content */}
       <div style={{ maxWidth: 1240, margin: '0 auto', padding: '0 36px', width: '100%', position: 'relative', zIndex: 1 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 72, alignItems: 'center', minHeight: 'calc(100vh - 68px)', paddingTop: 40, paddingBottom: 40 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56, alignItems: 'center', paddingTop: 36, paddingBottom: 36 }}>
 
-          {/* Left — center-aligned */}
+          {/* Left */}
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            {/* Logo — large, centered */}
-            <div style={{ marginBottom: 28, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <img src="/logo.jpg" alt="Nethrox" style={{ width: 120, height: 120, objectFit: 'cover', borderRadius: 28, boxShadow: logoShadow, marginBottom: 14 }} />
-              <span style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: 30, color: headingColor, letterSpacing: '-0.5px' }}>Nethrox</span>
+            <div style={{ marginBottom: 18, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <img src="/logo.jpg" alt="Nethrox" style={{ width: 120, height: 120, objectFit: 'cover', borderRadius: 28, boxShadow: logoShadow, marginBottom: 10 }} />
+              <span style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: 30, color: headingColor, letterSpacing: '-0.4px' }}>Nethrox</span>
             </div>
 
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: badgeBg, border: `1px solid ${badgeBorder}`, borderRadius: 999, padding: '6px 16px', marginBottom: 22 }}>
-              <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#28c840', boxShadow: '0 0 8px #28c840' }} />
-              <span style={{ fontSize: 11, fontWeight: 700, color: badgeText, letterSpacing: 1.2, textTransform: 'uppercase' }}>AI-Powered Compliance Platform</span>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 7, background: badgeBg, border: `1px solid ${badgeBorder}`, borderRadius: 999, padding: '5px 14px', marginBottom: 16 }}>
+              <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#28c840', boxShadow: '0 0 7px #28c840' }} />
+              <span style={{ fontSize: 10, fontWeight: 700, color: badgeText, letterSpacing: 1.2, textTransform: 'uppercase' }}>AI-Powered Compliance Platform</span>
             </div>
 
-            <h1 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 56, fontWeight: 800, color: headingColor, lineHeight: 1.08, letterSpacing: -2, margin: '0 0 18px' }}>
+            <h1 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 44, fontWeight: 800, color: headingColor, lineHeight: 1.1, letterSpacing: -1.5, margin: '0 0 14px' }}>
               Uncover risks<br />
               <span style={{ background: 'linear-gradient(135deg, #f0c040 0%, #c9a961 50%, #4ad9b0 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Ensure compliance</span>
             </h1>
-            <p style={{ fontSize: 16, color: bodyColor, lineHeight: 1.8, marginBottom: 34, maxWidth: 440 }}>
+            <p style={{ fontSize: 14, color: bodyColor, lineHeight: 1.75, marginBottom: 24, maxWidth: 400 }}>
               Advanced analytics for FCPA compliance, AML monitoring, and customisable data analysis — turning complex data into actionable intelligence.
             </p>
 
-            <div style={{ display: 'flex', gap: 14, marginBottom: 48, flexWrap: 'wrap', justifyContent: 'center' }}>
-              <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '14px 28px', background: 'linear-gradient(135deg, #c9a961 0%, #e8c96a 100%)', color: '#0a111e', fontWeight: 700, fontSize: 15, borderRadius: 12, cursor: 'pointer', border: 'none', boxShadow: '0 4px 24px rgba(201,169,97,0.5)', transition: 'all 0.22s', fontFamily: 'inherit' }}
-                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 36px rgba(201,169,97,0.65)'; }}
-                onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(201,169,97,0.5)'; }}>
-                Book a Demo <ArrowRight size={16} />
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center' }}>
+              <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '11px 22px', background: 'linear-gradient(135deg, #c9a961 0%, #e8c96a 100%)', color: '#0a111e', fontWeight: 700, fontSize: 14, borderRadius: 10, cursor: 'pointer', border: 'none', boxShadow: '0 4px 20px rgba(201,169,97,0.45)', transition: 'all 0.22s', fontFamily: 'inherit' }}
+                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(201,169,97,0.6)'; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(201,169,97,0.45)'; }}>
+                Book a Demo <ArrowRight size={15} />
               </button>
-              <button onClick={onLaunchApp} style={{ padding: '14px 28px', background: 'transparent', color: learnMoreColor, fontWeight: 600, fontSize: 15, borderRadius: 12, cursor: 'pointer', border: `1.5px solid ${learnMoreBorder}`, transition: 'all 0.22s', fontFamily: 'inherit' }}
+              <button onClick={onLaunchApp} style={{ padding: '11px 22px', background: 'transparent', color: learnMoreColor, fontWeight: 600, fontSize: 14, borderRadius: 10, cursor: 'pointer', border: `1.5px solid ${learnMoreBorder}`, transition: 'all 0.22s', fontFamily: 'inherit' }}
                 onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(201,169,97,0.6)'; e.currentTarget.style.color = '#c9a961'; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = learnMoreBorder; e.currentTarget.style.color = learnMoreColor; }}>
                 Learn More
               </button>
             </div>
-
-            {/* KPI strip */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20, paddingTop: 28, borderTop: `1px solid ${kpiBorder}`, width: '100%' }}>
-              {KPIS.map(k => (
-                <div key={k.label} style={{ textAlign: 'center' }}>
-                  <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 26, fontWeight: 800, color: kpiNum, letterSpacing: -1 }}>{k.value}</div>
-                  <div style={{ fontSize: 11, color: kpiSub, fontWeight: 500, lineHeight: 1.4, marginTop: 2 }}>{k.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
 
-          {/* Right: AI card stack */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+          {/* Right: AI cards */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             <TypewriterText />
             <AIMiniPlayer />
-            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-              {SOLUTIONS.map(s => (
-                <div key={s.title} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '7px 14px', background: pillBg, borderRadius: 999, fontSize: 12, fontWeight: 600, color: pillText, border: `1px solid ${pillBorder}` }}>
-                  <span style={{ color: '#f0c040' }}>{s.icon}</span>{s.title}
-                </div>
-              ))}
-            </div>
           </div>
 
+        </div>
+      </div>
+
+      {/* Solution cards — between hero and KPI strip */}
+      <div style={{ position: 'relative', zIndex: 1, padding: '8px 36px 24px', maxWidth: 1240, margin: '0 auto', width: '100%', boxSizing: 'border-box' }}>
+        <div style={{ textAlign: 'center', marginBottom: 18 }}>
+          <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: 1.8, textTransform: 'uppercase', color: darkMode ? 'rgba(255,255,255,0.3)' : '#94a3b8' }}>Our Key Solutions</span>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+          {[
+            { icon: <BarChart3 size={24} />, title: 'FCPA Analytics', description: 'Accounts Payable, Time & Expense, and Sales analytics' },
+            { icon: <Shield size={24} />, title: 'AML Monitoring', description: 'Transaction monitoring and suspicious activity detection' },
+            { icon: <Settings size={24} />, title: 'Custom Analytics', description: 'Flexible analytics for any dataset with customizable rules' },
+          ].map(card => (
+            <div key={card.title}
+              style={{ background: darkMode ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.85)', borderRadius: 16, padding: '22px 20px', border: darkMode ? '1px solid rgba(255,255,255,0.08)' : '1px solid rgba(15,29,66,0.08)', boxShadow: darkMode ? 'none' : '0 2px 16px rgba(15,29,66,0.06)', textAlign: 'center', transition: 'all 0.25s ease', cursor: 'default', backdropFilter: 'blur(8px)' }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.4)'; e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = darkMode ? '0 8px 32px rgba(99,102,241,0.2)' : '0 8px 32px rgba(99,102,241,0.12)'; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(15,29,66,0.08)'; e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = darkMode ? 'none' : '0 2px 16px rgba(15,29,66,0.06)'; }}>
+              <div style={{ width: 48, height: 48, borderRadius: 14, background: darkMode ? 'rgba(99,102,241,0.15)' : 'rgba(99,102,241,0.08)', border: darkMode ? '1px solid rgba(99,102,241,0.3)' : '1px solid rgba(99,102,241,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 14px', color: '#6366f1' }}>
+                {card.icon}
+              </div>
+              <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 15, fontWeight: 700, color: darkMode ? '#ffffff' : '#0f1d42', marginBottom: 6 }}>{card.title}</h3>
+              <p style={{ fontSize: 12, color: darkMode ? 'rgba(255,255,255,0.45)' : '#64748b', lineHeight: 1.55 }}>{card.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* KPI strip — dark bar anchored to hero bottom */}
+      <div style={{ position: 'relative', zIndex: 1, background: 'linear-gradient(135deg, #0a1736 0%, #0f1d42 50%, #0a1736 100%)', borderTop: '1px solid rgba(201,169,97,0.12)', padding: '28px 24px' }}>
+        <div style={{ maxWidth: 1120, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0 }}>
+          {KPIS.map((k, i) => (
+            <div key={k.label} style={{ textAlign: 'center', padding: '0 20px', borderRight: i < KPIS.length - 1 ? '1px solid rgba(255,255,255,0.08)' : 'none' }}>
+              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 32, fontWeight: 800, color: '#f0c040', letterSpacing: -1, lineHeight: 1.1 }}>{k.value}</div>
+              <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.55)', fontWeight: 500, marginTop: 5 }}>{k.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -661,7 +670,52 @@ function Footer({ darkMode }) {
           ))}
         </div>
         <div style={{ borderTop: `1px solid ${border}`, paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ fontSize: 12, color: bottom }}>© {new Date().getFullYear()} Nethrox. All rights reserved.</span>
+          {/* Left: copyright + social icons */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+            <span style={{ fontSize: 12, color: bottom }}>© {new Date().getFullYear()} Nethrox. All rights reserved.</span>
+            <div style={{ display: 'flex', gap: 8 }}>
+              {[
+                { href: 'https://facebook.com', title: 'Facebook', icon: (
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+                  </svg>
+                )},
+                { href: 'https://instagram.com', title: 'Instagram', icon: (
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                  </svg>
+                )},
+                { href: 'https://linkedin.com', title: 'LinkedIn', icon: (
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
+                    <rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" />
+                  </svg>
+                )},
+                { href: 'https://twitter.com', title: 'X / Twitter', icon: (
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                )},
+                { href: 'https://github.com', title: 'GitHub', icon: (
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+                  </svg>
+                )},
+                { href: 'https://youtube.com', title: 'YouTube', icon: (
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.45a2.78 2.78 0 001.95-1.97A29 29 0 0023 12a29 29 0 00-.46-5.58z" /><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+                  </svg>
+                )},
+              ].map(({ href, title, icon }) => (
+                <a key={title} href={href} target="_blank" rel="noopener noreferrer" title={title}
+                  style={{ width: 30, height: 30, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 8, background: darkMode ? 'rgba(255,255,255,0.06)' : 'rgba(15,29,66,0.06)', border: darkMode ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(15,29,66,0.1)', color: bottom, textDecoration: 'none', transition: 'all 0.2s' }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201,169,97,0.15)'; e.currentTarget.style.borderColor = 'rgba(201,169,97,0.4)'; e.currentTarget.style.color = '#c9a961'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = darkMode ? 'rgba(255,255,255,0.06)' : 'rgba(15,29,66,0.06)'; e.currentTarget.style.borderColor = darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(15,29,66,0.1)'; e.currentTarget.style.color = bottom; }}>
+                  {icon}
+                </a>
+              ))}
+            </div>
+          </div>
           <span style={{ fontSize: 12, color: bottom }}>Intelligence that protects.</span>
         </div>
       </div>
