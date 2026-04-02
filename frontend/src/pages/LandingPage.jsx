@@ -197,12 +197,6 @@ function Navigation({ onLaunchApp, darkMode, toggleTheme }) {
             onMouseLeave={e => { e.currentTarget.style.background = darkMode ? 'rgba(240,192,64,0.1)' : 'rgba(15,29,66,0.07)'; }}>
             {darkMode ? <Sun size={15} /> : <Moon size={15} />}
           </button>
-          <button onClick={onLaunchApp}
-            style={{ marginLeft: 8, padding: '8px 18px', fontSize: 13, fontWeight: 700, background: 'linear-gradient(135deg, #c9a961 0%, #e8c96a 100%)', color: '#0a111e', borderRadius: 8, cursor: 'pointer', border: 'none', letterSpacing: 0.3, transition: 'all 0.2s', fontFamily: 'inherit', boxShadow: '0 2px 12px rgba(201,169,97,0.4)' }}
-            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(201,169,97,0.55)'; }}
-            onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 2px 12px rgba(201,169,97,0.4)'; }}>
-            Book Demo
-          </button>
         </nav>
       </div>
     </header>
@@ -272,7 +266,7 @@ function Hero({ onLaunchApp, darkMode }) {
                 onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(201,169,97,0.45)'; }}>
                 Book a Demo <ArrowRight size={15} />
               </button>
-              <button onClick={onLaunchApp} style={{ padding: '11px 22px', background: 'transparent', color: learnMoreColor, fontWeight: 600, fontSize: 14, borderRadius: 10, cursor: 'pointer', border: `1.5px solid ${learnMoreBorder}`, transition: 'all 0.22s', fontFamily: 'inherit' }}
+              <button onClick={() => document.getElementById('why')?.scrollIntoView({ behavior: 'smooth' })} style={{ padding: '11px 22px', background: 'transparent', color: learnMoreColor, fontWeight: 600, fontSize: 14, borderRadius: 10, cursor: 'pointer', border: `1.5px solid ${learnMoreBorder}`, transition: 'all 0.22s', fontFamily: 'inherit' }}
                 onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(201,169,97,0.6)'; e.currentTarget.style.color = '#c9a961'; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = learnMoreBorder; e.currentTarget.style.color = learnMoreColor; }}>
                 Learn More
